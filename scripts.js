@@ -20,7 +20,6 @@ operators.forEach((operator) => operator.addEventListener('click', () => {
     storeEntry();
     currentValue = '';
     selectedOperation = operator.textContent;
-    console.log(selectedOperation);
 }));
 
 //listener for 'enter'
@@ -31,25 +30,19 @@ clearButton.addEventListener('click', () => fullClear());
 
 function addEntry(entry) {
     currentValue = currentValue + entry;
-    console.log(currentValue);
     display.textContent = currentValue;
 }
 
 //move current value to stored on operator selection
 function storeEntry() {
     storedValue = parseFloat(currentValue);
-    console.log('stored:', storedValue);
 }
 
 //set listeners for keyboard entry
     //no earthly clue
 
-
-
 //clean entry
 function clean(array) {return parseFloat(array.join(''));}
-
-
 
 //perform operation on cleaned inputs
 function calculate() {
