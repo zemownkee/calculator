@@ -58,16 +58,19 @@ function calculate() {
     switch (selectedOperation) {
         case '+':
             answer = storedValue + currentFloat;
+            break;
         case '-':
             answer = storedValue - currentFloat;
+            break;
         case '*':
             answer = storedValue * currentFloat;
+            break;
         case '/':
             answer = storedValue / currentFloat;
+            break;
     }
     display.textContent = answer;
-    storedValue = answer;
-    currentValue = '';
+    currentValue = answer;
 }
 
 //reset values/display
@@ -75,4 +78,5 @@ function fullClear() {
     selectedOperation = '';
     currentValue = '';
     storedValue = '';
+    display.textContent = '';
 }
