@@ -9,17 +9,40 @@ const numbers = document.querySelectorAll('.number');
 const operators = document.querySelectorAll('.operator');
 const display = document.querySelector('.display');
 const equals = document.querySelector('.equals');
+const decimal = document.querySelector('.decimal');
 const clearButton = document.querySelector('.clear');
+
+//enable decimal only once per entry
+decimal.addEventListener('click', () => {
+    if(!currentValue.contains('.')) {
+        addEntry(decimal.textContent);
+        console.log('current:', currentValue);
+        console.log('stored:', storedValue);
+    }
+});
 
 //set dynamic 'click' listeners that push element.textContent to string
 //get entry as numbers are entered
-numbers.forEach((number) => number.addEventListener('click', () => addEntry(number.textContent)));
+numbers.forEach((number) => number.addEventListener('click', () => {
+    addEntry(number.textContent);
+    console.log('current:', currentValue);
+    console.log('stored:', storedValue);
+}));
 
 //get selection operation and store
 operators.forEach((operator) => operator.addEventListener('click', () => {
-    storeEntry();
-    currentValue = '';
-    selectedOperation = operator.textContent;
+    if(!storedValue){
+        storeEntry();
+        currentValue = '';
+        selectedOperation = operator.textContent;
+        console.log('current:', currentValue);
+        console.log('stored:', storedValue);
+    } else if(currentValue == '') {
+        selectedOperation = operator.textContent;
+    } else {
+        calculate();
+        selectedOperation = operator.textContent;
+    }
 }));
 
 //listener for 'enter'
@@ -47,29 +70,32 @@ function clean(array) {return parseFloat(array.join(''));}
 //perform operation on cleaned inputs
 function calculate() {
     let currentFloat = parseFloat(currentValue);
-    let answer;
     switch (selectedOperation) {
         case '+':
-            answer = storedValue + currentFloat;
+            storedValue = storedValue + currentFloat;
             break;
         case '-':
-            answer = storedValue - currentFloat;
+            storedValue = storedValue - currentFloat;
             break;
         case '*':
-            answer = storedValue * currentFloat;
+            storedValue = storedValue * currentFloat;
             break;
         case '/':
-            answer = storedValue / currentFloat;
+            storedValue = storedValue / currentFloat;
             break;
     }
-    display.textContent = answer;
-    currentValue = answer;
+    display.textContent = storedValue;
+    currentValue = '';
+    console.log('current:', currentValue);
+    console.log('stored:', storedValue);
 }
 
 //reset values/display
 function fullClear() {
     selectedOperation = '';
     currentValue = '';
-    storedValue = '';
-    display.textContent = '';
+    storedValue = undefined;
+    display.textContent = '0';
+    console.log('current:', currentValue);
+    console.log('stored:', storedValue);
 }
