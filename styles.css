@@ -16,7 +16,10 @@ body {
     font-size: 48px;
     font-weight: 500;
     justify-content: center;
+}
 
+.operator {
+    background-color: rgb(111, 183, 255)
 }
 
 .calculator {
@@ -43,6 +46,7 @@ body {
     font-family: 'Segment7Standard', monospace;
     text-align: right;
     padding: .5ch;
+    text-overflow: clip;
 }
 
 .buttons {

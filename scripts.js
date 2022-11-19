@@ -63,8 +63,11 @@ clearButton.addEventListener('click', () => fullClear());
 
 //listener for backspace
 backspace.addEventListener('click', () => {
+    if(currentValue.length > 1) {
     currentValue = currentValue.slice(0,-1);
     display.textContent = currentValue;
+} else fullClear();
+
 });
 
 //add selections to string
