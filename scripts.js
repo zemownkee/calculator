@@ -1,5 +1,6 @@
 //global variables
 let selectedOperation;
+//two values at all times. one is the "stored", parsed value, and one is the value currently taking input
 let storedValue;
 let currentValue = '';
 
@@ -31,15 +32,19 @@ numbers.forEach((number) => number.addEventListener('click', () => {
 
 //get selection operation and store
 operators.forEach((operator) => operator.addEventListener('click', () => {
+    //get input when fully cleared
     if(!storedValue){
         storeEntry();
         currentValue = '';
         selectedOperation = operator.textContent;
         console.log('current:', currentValue);
         console.log('stored:', storedValue);
+    //when there is a value stored, but nothing currently entered
     } else if(currentValue == '') {
         selectedOperation = operator.textContent;
     } else {
+    //when there is a value stored, and someting currently entered, perform calculation as if enter had been hit. \
+    // this will ready the input for next number
         calculate();
         selectedOperation = operator.textContent;
     }
@@ -51,12 +56,13 @@ equals.addEventListener('click', () => calculate());
 //listener for 'clear'
 clearButton.addEventListener('click', () => fullClear());
 
+//add selections to string
 function addEntry(entry) {
     currentValue = currentValue + entry;
     display.textContent = currentValue;
 }
 
-//move current value to stored on operator selection
+//move current value to stored
 function storeEntry() {
     storedValue = parseFloat(currentValue);
 }
