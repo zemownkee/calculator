@@ -8,7 +8,9 @@ let currentValue = '';
 const buttons = document.querySelectorAll('button');
 const numbers = document.querySelectorAll('.number');
 const operators = document.querySelectorAll('.operator');
-const display = document.querySelector('.display');
+const displayCurrent = document.querySelector('.display .current-value');
+const displayStored = document.querySelector('.display .stored-value');
+const displayOperator = document.querySelector('.display .current-operator');
 const equals = document.querySelector('.equals');
 const decimal = document.querySelector('.decimal');
 const clearButton = document.querySelector('.clear');
@@ -32,26 +34,31 @@ operators.forEach((operator) => operator.addEventListener('click', () => operati
 
 //set listeners for keyboard entry
     window.addEventListener('keydown', keyEntry);
-    function keyEntry(e) {
-       const keyPressed = document.querySelector(`[data-key='${e.key}']`);
-       //when key is pressed, it selects the relevant element and runs element.click().
-       keyPressed.click();
-    }
+
+function keyEntry(e) {
+    const keyPressed = document.querySelector(`[data-key='${e.key}']`);
+    //when key is pressed, it selects the relevant element and runs element.click().
+    keyPressed.click();
+}
 
 function operation(operator) {
     //get input when fully cleared
     if(!storedValue){
         storeEntry();
         currentValue = '';
+        displayCurrent.textContent = currentValue;
         selectedOperation = operator.textContent;
+        displayOperator.textContent = selectedOperation;
     //when there is a value stored, but nothing currently entered
     } else if(currentValue == '') {
         selectedOperation = operator.textContent;
+        displayOperator.textContent = selectedOperation;
     } else {
     //when there is a value stored, and someting currently entered, perform calculation as if enter had been hit. \
     // this will ready the input for next number
         calculate();
         selectedOperation = operator.textContent;
+        displayOperator.textContent = selectedOperation;
     }
 }
 
@@ -65,7 +72,7 @@ clearButton.addEventListener('click', () => fullClear());
 backspace.addEventListener('click', () => {
     if(currentValue.length > 1) {
     currentValue = currentValue.slice(0,-1);
-    display.textContent = currentValue;
+    displayCurrent.textContent = currentValue;
 } else fullClear();
 
 });
@@ -73,7 +80,7 @@ backspace.addEventListener('click', () => {
 //add selections to string
 function addEntry(entry) {
     currentValue = currentValue + entry;
-    display.textContent = currentValue;
+    displayCurrent.textContent = currentValue;
 }
 
 //move current value to stored
@@ -82,6 +89,7 @@ function storeEntry() {
         storedValue = 0;
     } else {
     storedValue = parseFloat(currentValue);
+    displayStored.textContent = storedValue;
     }
 }
 
@@ -105,16 +113,18 @@ function calculate() {
         case '/':
             if(currentFloat == 0) {
                 //if(oof) {oof}
-                display.textContent = "OOF";
-                storedValue = 0;
-                currentValue = '';
+                fullClear();
+                displayStored.textContent = 'OOF';
                 return;
             }
             storedValue = storedValue / currentFloat;
             break;
     }
-    display.textContent = storedValue;
+    storedValue = parseFloat(storedValue.toFixed(3).replace(".000",""));
+    displayStored.textContent = storedValue;
     currentValue = '';
+    displayCurrent.textContent = currentValue;
+    displayOperator.textContent = '';
 }
 
 //reset all values and display
@@ -122,5 +132,7 @@ function fullClear() {
     selectedOperation = '';
     currentValue = '';
     storedValue = 0;
-    display.textContent = '0';
+    displayStored.textContent = storedValue;
+    displayCurrent.textContent = currentValue;
+    displayOperator.textContent = selectedOperation;
 }

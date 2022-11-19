@@ -12,12 +12,16 @@
 </head>
 <body>
     <div class='page'>
-        <div class='header'>One Calculatey Boi</div>
+        <!-- <div class='header'>One Calculatey Boi</div> -->
         <div class='calculator'>
-            <div class='display'>0</div>
+            <div class='display'>
+                <div class="stored-value"></div>
+                <div class="current-operator"></div>
+                <div class='current-value'></div>
+            </div>
             <div class='buttons'>
                 <div class='row'>
-                    <button data-key='x' class='clear'>Clear</button>
+                    <button data-key='x' class='large clear'>Clear</button>
                     <button data-key='Backspace' class='back'>&lt-</button>
                     <button data-key='*' class='operator'>*</button>
                 </div>
@@ -42,9 +46,9 @@
                     <button data-key='+' class='operator'>+</button>
                 </div>
                 <div class='row'>
-                    <button data-key='0' class='number double'>0</button>
+                    <button data-key='0' class='number'>0</button>
                     <button data-key='.' class='decimal'>.</button>
-                    <button data-key='Enter' class='equals'>=</button>
+                    <button data-key='Enter' class='equals large'>=</button>
 
                 </div>
             </div>
