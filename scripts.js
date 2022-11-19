@@ -39,7 +39,10 @@ function keyEntry(e) {
     const keyPressed = document.querySelector(`[data-key='${e.key}']`);
     //when key is pressed, it selects the relevant element and runs element.click().
     keyPressed.click();
-}
+    keyPressed.classList.toggle('keyEntry');
+    setTimeout(() => {
+        keyPressed.classList.toggle('keyEntry');}, 100);
+    }
 
 function operation(operator) {
     //get input when fully cleared

@@ -91,7 +91,8 @@ button {
     flex: 1 1 0;
 }
 
-button:active {
+button:active, .keyEntry {
     box-shadow: none;
     scale: 0.98;
+    background-color:  rgb(249, 235, 152);
 }
