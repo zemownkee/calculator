@@ -15,7 +15,7 @@ const clearButton = document.querySelector('.clear');
 
 //enable decimal only once per entry
 decimal.addEventListener('click', () => {
-    if(!currentValue.contains('.')) {
+    if(!currentValue.includes('.')) {
         addEntry(decimal.textContent);
         console.log('current:', currentValue);
         console.log('stored:', storedValue);
