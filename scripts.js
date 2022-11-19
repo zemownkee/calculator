@@ -18,8 +18,6 @@ const backspace = document.querySelector('.back');
 decimal.addEventListener('click', () => {
     if(!currentValue.includes('.')) {
         addEntry(decimal.textContent);
-        console.log('current:', currentValue);
-        console.log('stored:', storedValue);
     }
 });
 
@@ -27,8 +25,6 @@ decimal.addEventListener('click', () => {
 //get entry as numbers are entered
 numbers.forEach((number) => number.addEventListener('click', () => {
     addEntry(number.textContent);
-    console.log('current:', currentValue);
-    console.log('stored:', storedValue);
 }));
 
 //get selection operation and store
@@ -39,7 +35,6 @@ operators.forEach((operator) => operator.addEventListener('click', () => operati
     window.addEventListener('keydown', keyEntry);
     function keyEntry(e) {
        const keyPressed = document.querySelector(`[data-key='${e.key}']`);
-       console.log(keyPressed);
        keyPressed.click();
     }
 
@@ -49,8 +44,6 @@ function operation(operator) {
         storeEntry();
         currentValue = '';
         selectedOperation = operator.textContent;
-        console.log('current:', currentValue);
-        console.log('stored:', storedValue);
     //when there is a value stored, but nothing currently entered
     } else if(currentValue == '') {
         selectedOperation = operator.textContent;
@@ -72,8 +65,7 @@ clearButton.addEventListener('click', () => fullClear());
 backspace.addEventListener('click', () => {
     currentValue = currentValue.slice(0,-1);
     display.textContent = currentValue;
-}
-)
+});
 
 //add selections to string
 function addEntry(entry) {
@@ -118,8 +110,6 @@ function calculate() {
     }
     display.textContent = storedValue;
     currentValue = '';
-    console.log('current:', currentValue);
-    console.log('stored:', storedValue);
 }
 
 //reset values/display
@@ -128,6 +118,4 @@ function fullClear() {
     currentValue = '';
     storedValue = 0;
     display.textContent = '0';
-    console.log('current:', currentValue);
-    console.log('stored:', storedValue);
 }
