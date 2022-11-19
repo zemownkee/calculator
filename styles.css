@@ -52,7 +52,6 @@ body {
     font-family: 'Segment7Standard', monospace;
     text-align: right;
     overflow: hidden;
-    /* border-radius: 10px; */
     display: flex;
     flex-direction: column;
 }
@@ -64,15 +63,17 @@ body {
     max-height: 95%;
     flex-direction: column;
     flex: 1 1 auto;
-    align-items: center;
-    gap: 3px;
+    justify-content: center;
 }
 
 .row {
     display: flex;
-    gap: 3px;
     flex: 1 1 0;
     width: 100%;
+}
+
+button.large {
+    flex: 2 1 0;
 }
 
 button {
@@ -80,7 +81,7 @@ button {
     border: none;
     background-color: rgb(249, 248, 242);
     font-weight: 900;
-    font-size: 48px;
+    font-size: 3ch;
     border: 1px solid rgb(7, 13, 58);
     box-shadow: 1px 1px black;
     transition: 0.1s;
@@ -91,8 +92,4 @@ button {
 button:active {
     box-shadow: none;
     scale: 0.98;
-}
-
-button.large {
-    flex: 2 1 0;
 }
