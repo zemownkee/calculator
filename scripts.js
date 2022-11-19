@@ -12,6 +12,7 @@ const display = document.querySelector('.display');
 const equals = document.querySelector('.equals');
 const decimal = document.querySelector('.decimal');
 const clearButton = document.querySelector('.clear');
+const backspace = document.querySelector('.back');
 
 //enable decimal only once per entry
 decimal.addEventListener('click', () => {
@@ -31,7 +32,18 @@ numbers.forEach((number) => number.addEventListener('click', () => {
 }));
 
 //get selection operation and store
-operators.forEach((operator) => operator.addEventListener('click', () => {
+operators.forEach((operator) => operator.addEventListener('click', () => operation(operator)));
+
+//set listeners for keyboard entry
+    //no earthly clue
+    window.addEventListener('keydown', keyEntry);
+    function keyEntry(e) {
+       const keyPressed = document.querySelector(`[data-key='${e.key}']`);
+       console.log(keyPressed);
+       keyPressed.click();
+    }
+
+function operation(operator) {
     //get input when fully cleared
     if(!storedValue){
         storeEntry();
@@ -48,13 +60,20 @@ operators.forEach((operator) => operator.addEventListener('click', () => {
         calculate();
         selectedOperation = operator.textContent;
     }
-}));
+}
 
 //listener for 'enter'
 equals.addEventListener('click', () => calculate());
 
 //listener for 'clear'
 clearButton.addEventListener('click', () => fullClear());
+
+//listener for backspace
+backspace.addEventListener('click', () => {
+    currentValue = currentValue.slice(0,-1);
+    display.textContent = currentValue;
+}
+)
 
 //add selections to string
 function addEntry(entry) {
@@ -70,9 +89,6 @@ function storeEntry() {
     storedValue = parseFloat(currentValue);
     }
 }
-
-//set listeners for keyboard entry
-    //no earthly clue
 
 //clean entry
 function clean(array) {return parseFloat(array.join(''));}
