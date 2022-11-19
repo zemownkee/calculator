@@ -4,7 +4,7 @@ let selectedOperation;
 let storedValue = 0;
 let currentValue = '';
 
-//set document references
+//set a lot of document references
 const buttons = document.querySelectorAll('button');
 const numbers = document.querySelectorAll('.number');
 const operators = document.querySelectorAll('.operator');
@@ -31,10 +31,10 @@ numbers.forEach((number) => number.addEventListener('click', () => {
 operators.forEach((operator) => operator.addEventListener('click', () => operation(operator)));
 
 //set listeners for keyboard entry
-    //no earthly clue
     window.addEventListener('keydown', keyEntry);
     function keyEntry(e) {
        const keyPressed = document.querySelector(`[data-key='${e.key}']`);
+       //when key is pressed, it selects the relevant element and runs element.click().
        keyPressed.click();
     }
 
@@ -87,6 +87,7 @@ function clean(array) {return parseFloat(array.join(''));}
 
 //perform operation on cleaned inputs
 function calculate() {
+    //added extra condition to input cleaning to fix bug when no value entered
     let currentFloat = currentValue == ''  ? parseFloat(0) : parseFloat(currentValue);
     switch (selectedOperation) {
         case '+':
@@ -100,6 +101,7 @@ function calculate() {
             break;
         case '/':
             if(currentFloat == 0) {
+                //if(oof) {oof}
                 display.textContent = "OOF";
                 storedValue = 0;
                 currentValue = '';
@@ -112,7 +114,7 @@ function calculate() {
     currentValue = '';
 }
 
-//reset values/display
+//reset all values and display
 function fullClear() {
     selectedOperation = '';
     currentValue = '';
