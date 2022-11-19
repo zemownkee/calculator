@@ -64,7 +64,11 @@ function addEntry(entry) {
 
 //move current value to stored
 function storeEntry() {
+    if(currentValue == '') {
+        storedvalue = 0;
+    } else {
     storedValue = parseFloat(currentValue);
+    }
 }
 
 //set listeners for keyboard entry
@@ -75,7 +79,7 @@ function clean(array) {return parseFloat(array.join(''));}
 
 //perform operation on cleaned inputs
 function calculate() {
-    let currentFloat = parseFloat(currentValue);
+    let currentFloat = currentValue == '' ? parseFloat(0) : parseFloat(currentValue);
     switch (selectedOperation) {
         case '+':
             storedValue = storedValue + currentFloat;
@@ -87,6 +91,12 @@ function calculate() {
             storedValue = storedValue * currentFloat;
             break;
         case '/':
+            if(currentFloat == 0) {
+                display.textContent = "OOF";
+                storedValue = 0;
+                currentValue = '';
+                return;
+            }
             storedValue = storedValue / currentFloat;
             break;
     }
