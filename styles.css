@@ -22,8 +22,8 @@ body {
 .calculator {
     display: flex;
     flex-direction: column;
-    background-image: linear-gradient(135deg, forestgreen, rgb(7, 58, 7));
-    border: 2px solid darkgreen;
+    background-image: linear-gradient(135deg, rgb(215, 215, 215), rgb(157, 166, 188));
+    border: 2px solid slategray;
     border-radius: 8px;
     padding: 10px;
     width: 60vh;
@@ -35,12 +35,14 @@ body {
 .display {
     background-color: black;
     color: white;
+    font-size: 3em;
+    font-weight: 500;
     margin: 10px;
     width: 70%;
-    height: 4ch;
-    font-family: monospace; 
+    height: 2ch;
+    font-family: 'Segment7Standard', monospace;
     text-align: right;
-    padding-top: 10px;
+    padding: .5ch;
 }
 
 .buttons {
@@ -59,20 +61,21 @@ body {
 button {
     appearance: none;
     border: none;
-    background-color: darkgreen;
+    background-color: rgb(163, 209, 255);
     font-weight: 900;
     font-size: 48px;
     padding: .5px;
-    border: 1px solid rgb(7, 58, 7);
+    border: 1px solid rgb(7, 13, 58);
     box-shadow: 1px 1px black;
     transition: 0.1s;
-    border-radius: 3px;
+    border-radius: 2px;
     min-width: 2ch;
     flex-grow: 1;
 }
 
 button:active {
     box-shadow: none;
+    scale: 0.98;
 }
 
 .double {

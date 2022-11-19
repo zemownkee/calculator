@@ -110,7 +110,7 @@ function calculate() {
 function fullClear() {
     selectedOperation = '';
     currentValue = '';
-    storedValue = undefined;
+    storedValue = 0;
     display.textContent = '0';
     console.log('current:', currentValue);
     console.log('stored:', storedValue);
