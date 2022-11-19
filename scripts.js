@@ -1,7 +1,7 @@
 //global variables
 let selectedOperation;
 //two values at all times. one is the "stored", parsed value, and one is the value currently taking input
-let storedValue;
+let storedValue = 0;
 let currentValue = '';
 
 //set document references
@@ -65,7 +65,7 @@ function addEntry(entry) {
 //move current value to stored
 function storeEntry() {
     if(currentValue == '') {
-        storedvalue = 0;
+        storedValue = 0;
     } else {
     storedValue = parseFloat(currentValue);
     }
@@ -79,7 +79,7 @@ function clean(array) {return parseFloat(array.join(''));}
 
 //perform operation on cleaned inputs
 function calculate() {
-    let currentFloat = currentValue == '' ? parseFloat(0) : parseFloat(currentValue);
+    let currentFloat = currentValue == ''  ? parseFloat(0) : parseFloat(currentValue);
     switch (selectedOperation) {
         case '+':
             storedValue = storedValue + currentFloat;
