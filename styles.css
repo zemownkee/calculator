@@ -5,14 +5,16 @@ body {
     background-color: rgb(250, 237, 205);
     margin: 0px;
     padding: 0px;
+    /* display: flex; */
 }
 
 .page {
     display: flex;
     flex-direction: column;
     align-items: center;
-    min-width: 100%;
-    min-height: 100%;
+    justify-items: space-between;
+    width: 100%;
+    height: 100%;
 }
 
 .header {
@@ -32,7 +34,7 @@ body {
     flex-direction: column;
     background-image: linear-gradient(135deg, rgb(254, 251, 243), rgb(255, 248, 226));
     border: 2px solid slategray;
-    padding: 10px;
+    /* padding: 10px; */
     width: 75vh;
     height: 75vh;
     justify-content: space-around;
@@ -64,6 +66,7 @@ body {
     flex-direction: column;
     flex: 1 1 0;
     justify-content: center;
+    margin-bottom: 10px;
 }
 
 .row {
@@ -83,10 +86,8 @@ button {
     background-color: rgb(249, 248, 242);
     font-weight: 900;
     font-size: 3ch;
-    /* border: 1px solid rgb(7, 13, 58); */
     box-shadow: 0px 0px 2px rgb(104, 104, 84);
     transition: 0.1s;
-    /* border-radius: 2px; */
     min-width: 24.1%;
     flex: 1 1 auto;
 }
@@ -95,4 +96,16 @@ button:active, .keyEntry {
     box-shadow: none;
     scale: 0.98;
     background-color:  rgb(249, 235, 152);
+}
+
+.footer {
+    color: black;
+    justify-self: flex-end;
+    font-size: 1em;
+    justify-content: center;
+    position: fixed;
+    bottom: 0;
+    margin-top: auto;
+    flex-grow: 1;
+    margin-bottom: 0px;
 }
