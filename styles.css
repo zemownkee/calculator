@@ -1,10 +1,12 @@
-body {
-    min-width: 100vw;
-    min-height: 100vh;
-    font-family: Poppins, sans-serif;
-    background-color: rgb(250, 237, 205);
+* {
     margin: 0px;
     padding: 0px;
+}
+body {
+    width: 100vw;
+    height: 100vh;
+    font-family: Poppins, sans-serif;
+    background-color: rgb(250, 237, 205);
     /* display: flex; */
 }
 
@@ -12,9 +14,9 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-items: space-between;
-    width: 100%;
-    height: 100%;
+    justify-content: center;
+    min-width: 100%;
+    min-height: 100%;
 }
 
 .header {
@@ -22,6 +24,8 @@ body {
     font-size: 48px;
     font-weight: 500;
     justify-content: center;
+    flex: 1, 1, 0;
+    margin-bottom: 3%;
 }
 
 .operator {
@@ -34,9 +38,8 @@ body {
     flex-direction: column;
     background-image: linear-gradient(135deg, rgb(254, 251, 243), rgb(255, 248, 226));
     border: 2px solid slategray;
-    /* padding: 10px; */
-    width: 75vh;
-    height: 75vh;
+    width: 40%;
+    height: 80%;
     justify-content: space-around;
     align-items: center;
 }
@@ -47,7 +50,7 @@ body {
     background-color: black;
     color: white;    
     font-weight: 500;
-    font-size: 3ch;
+    font-size: 3rem;
     height: 6ch;
     margin: 10px;
     width: 95%;
@@ -76,7 +79,7 @@ body {
 }
 
 button.large {
-    flex: 2 1 auto;
+    flex: 2 1 0;
 }
 
 button {
@@ -86,10 +89,9 @@ button {
     background-color: rgb(249, 248, 242);
     font-weight: 900;
     font-size: 3ch;
-    box-shadow: 0px 0px 2px rgb(104, 104, 84);
     transition: 0.1s;
-    min-width: 24.1%;
-    flex: 1 1 auto;
+    flex: 1 1 0;
+    box-shadow: inset 0px 0px 1px rgb(104, 104, 84);
 }
 
 button:active, .keyEntry {
@@ -103,9 +105,7 @@ button:active, .keyEntry {
     justify-self: flex-end;
     font-size: 1em;
     justify-content: center;
-    position: fixed;
-    bottom: 0;
-    margin-top: auto;
-    flex-grow: 1;
+    flex: 1, 1, 0;    
     margin-bottom: 0px;
+    margin-top: 3%;
 }
