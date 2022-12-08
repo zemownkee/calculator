@@ -37,7 +37,7 @@ operators.forEach((operator) => operator.addEventListener('click', () => operati
 
 function keyEntry(e) {
     const keyPressed = document.querySelector(`[data-key='${e.key}']`);
-    //when key is pressed, it selects the relevant element and runs element.click().
+    //when key is pressed, it selects the relevant element and simulates mouse click
     keyPressed.click();
     keyPressed.classList.toggle('keyEntry');
     setTimeout(() => {
