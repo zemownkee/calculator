@@ -28,7 +28,8 @@ body {
     margin-bottom: 5%;
 }
 
-.operator {
+.operator,
+.back {
     background-color: rgb(235, 218, 87)
 }
 
