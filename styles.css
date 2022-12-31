@@ -1,114 +1,113 @@
 * {
-    margin: 0px;
-    padding: 0px;
+  margin: 0px;
+  padding: 0px;
 }
 body {
-    width: 100vw;
-    height: 100vh;
-    font-family: Poppins, sans-serif;
-    background-color: rgb(250, 237, 205);
-    /* display: flex; */
+  width: 100vw;
+  height: 100vh;
+  font-family: Poppins, sans-serif;
+  background-color: rgb(250, 237, 205);
+  /* display: flex; */
 }
 
 .page {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    min-width: 100%;
-    min-height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-width: 100%;
+  min-height: 100%;
 }
 
 .header {
-    display: flex;
-    font-size: 48px;
-    font-weight: 500;
-    justify-content: center;
-    flex: 1, 1, 0;
-    margin-bottom: 5%;
+  display: flex;
+  font-size: 48px;
+  font-weight: 500;
+  justify-content: center;
+  flex: 1, 1, 0;
+  margin-bottom: 5%;
 }
 
 .operator,
 .back {
-    background-color: rgb(235, 218, 87)
+  background-color: rgb(235, 218, 87);
 }
 
 .calculator {
-    display: flex;
-    flex: 0 1 auto;
-    flex-direction: column;
-    background-image: linear-gradient(135deg, rgb(254, 251, 243), rgb(255, 248, 226));
-    border: 2px solid slategray;
-    width: 60%;
-    max-width: 300px;
-    height: 65vh;
-    max-height: 500px;
-    justify-content: space-around;
-    align-items: center;
+  display: flex;
+  flex: 0 1 auto;
+  flex-direction: column;
+  background-image: linear-gradient(135deg, rgb(254, 251, 243), rgb(255, 248, 226));
+  border: 2px solid slategray;
+  width: 60%;
+  max-width: 300px;
+  height: 65vh;
+  max-height: 500px;
+  justify-content: space-around;
+  align-items: center;
 }
-
 
 .display {
-    flex-shrink: 1;
-    background-color: black;
-    color: white;    
-    font-weight: 500;
-    font-size: 3rem;
-    height: 6ch;
-    margin: 10px;
-    width: 95%;
-    font-family: 'Segment7Standard', monospace;
-    text-align: right;
-    overflow: hidden;
-    display: flex;
-    flex-direction: column;
+  flex-shrink: 1;
+  background-color: black;
+  color: white;
+  font-weight: 500;
+  font-size: 3rem;
+  height: 6ch;
+  margin: 10px;
+  width: 95%;
+  font-family: "Segment7Standard", monospace;
+  text-align: right;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
 }
 
-
 .buttons {
-    display: flex;
-    width: 95%;
-    max-height: 95%;
-    flex-direction: column;
-    flex: 1 1 0;
-    justify-content: center;
-    margin-bottom: 10px;
+  display: flex;
+  width: 95%;
+  max-height: 95%;
+  flex-direction: column;
+  flex: 1 1 0;
+  justify-content: center;
+  margin-bottom: 10px;
 }
 
 .row {
-    display: flex;
-    flex: 1 1 0;
-    width: 100%;
+  display: flex;
+  flex: 1 1 0;
+  width: 100%;
 }
 
 button.large {
-    flex: 2 1 0;
+  flex: 2 1 0;
 }
 
 button {
-    appearance: none;
-    border: none;
-    padding: none;
-    background-color: rgb(249, 248, 242);
-    font-weight: 900;
-    font-size: 3ch;
-    transition: 0.1s;
-    flex: 1 1 0;
-    box-shadow: inset 0px 0px 1px rgb(104, 104, 84);
+  appearance: none;
+  border: none;
+  padding: none;
+  background-color: rgb(249, 248, 242);
+  font-weight: 900;
+  font-size: 3ch;
+  transition: 0.1s;
+  flex: 1 1 0;
+  box-shadow: inset 0px 0px 1px rgb(104, 104, 84);
 }
 
-button:active, .keyEntry {
-    box-shadow: none;
-    scale: 0.98;
-    background-color:  rgb(249, 235, 152);
+button:active,
+.keyEntry {
+  box-shadow: none;
+  scale: 0.98;
+  background-color: rgb(249, 235, 152);
 }
 
 .footer {
-    color: black;
-    justify-self: flex-end;
-    font-size: 1em;
-    justify-content: center;
-    flex: 1, 1, 0;    
-    margin-bottom: 0px;
-    margin-top: auto;
+  color: black;
+  justify-self: flex-end;
+  font-size: 1em;
+  justify-content: center;
+  flex: 1, 1, 0;
+  margin-bottom: 0px;
+  margin-top: auto;
 }
